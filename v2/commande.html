@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr" data-base="../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Commande · Wazni</title>
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/v2.css">
+</head>
+<body data-light="1" data-no-drawer="1">
+<div class="wrap pg" data-checkout-top>
+  <h1 class="disp" style="font-size:clamp(52px,7vw,96px)">Commande<span style="color:var(--fl)">.</span></h1>
+  <div class="stp"><div data-st="0" data-n="1">Panier</div><div data-st="1" data-n="2">Coordonnées</div><div data-st="2" data-n="3">Livraison</div><div data-st="3" data-n="4">Paiement</div></div>
+  <div class="ck">
+    <div>
+      <div class="card2 pane" data-pane="1">
+        <h3>Qui es-tu ?</h3>
+        <p data-empty-note style="display:none;margin-bottom:14px" class="tv">Panier vide — <a href="#" data-demo-fill style="text-decoration:underline">remplir pour la démo</a></p>
+        <div class="fields">
+          <div class="f"><label>Prénom *</label><input name="prenom" required><span class="e">Champ requis</span></div>
+          <div class="f"><label>Nom *</label><input name="nom" required><span class="e">Champ requis</span></div>
+          <div class="f full"><label>Téléphone *</label><input name="tel" required inputmode="tel" placeholder="05 / 06 / 07 …"><span class="e">Numéro mobile algérien à 10 chiffres</span></div>
+          <div class="f full"><label>E-mail (facultatif)</label><input name="email" type="email"></div>
+        </div>
+        <div class="nav-btns"><a href="#" class="lnk" data-open>Modifier le panier</a><button class="bigbtn dark" data-next>Livraison <i>→</i></button></div>
+      </div>
+      <div class="card2 pane" data-pane="2">
+        <h3>On livre où ?</h3>
+        <div class="fields">
+          <div class="f"><label>Wilaya *</label><select name="wilaya" required></select><span class="e">Choisis ta wilaya</span></div>
+          <div class="f"><label>Commune *</label><input name="commune" required><span class="e">Champ requis</span></div>
+          <div class="f full"><label>Adresse</label><input name="adresse" placeholder="Rue, quartier, repère…"></div>
+        </div>
+        <div class="opt-label">Mode de livraison <span class="tv">Tarifs indicatifs</span></div>
+        <div class="radio">
+          <label><input type="radio" name="mode" value="domicile" checked><span class="t"><b>À domicile</b><small>24 à 72 h selon la wilaya</small></span><span class="p" data-mode-price="domicile">—</span></label>
+          <label><input type="radio" name="mode" value="relais"><span class="t"><b>Point relais</b><small>Retrait au bureau du transporteur</small></span><span class="p" data-mode-price="relais">—</span></label>
+        </div>
+        <div class="nav-btns"><button class="lnk" data-prev>← Retour</button><button class="bigbtn dark" data-next>Paiement <i>→</i></button></div>
+      </div>
+      <div class="card2 pane" data-pane="3">
+        <h3>Paiement</h3>
+        <div class="radio">
+          <label><input type="radio" name="pay" value="cod" checked><span class="t"><b>À la livraison</b><small>En espèces, à la réception</small></span><span class="p">DA</span></label>
+          <label class="disabled-opt"><input type="radio" name="pay" value="cib"><span class="t"><b>CIB / Edahabia</b><small>Activable sur le site final</small></span><span class="p">Bientôt</span></label>
+        </div>
+        <div class="opt-label">Récapitulatif</div>
+        <div class="recap" data-recap></div>
+        <div class="f full" style="margin-top:14px"><label>Note (facultatif)</label><textarea name="note"></textarea></div>
+        <div class="nav-btns"><button class="lnk" data-prev>← Retour</button><button class="bigbtn" data-confirm style="background:var(--fl);color:#fff">Confirmer <i style="background:#fff;color:var(--ink)">✓</i></button></div>
+        <div class="secure">Démo : aucune donnée n'est envoyée ni enregistrée</div>
+      </div>
+      <div class="card2 pane" data-pane="4">
+        <div class="done-box">
+          <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+          <p class="hand" style="font-size:32px;color:var(--fl)">Merci <span data-ord-name></span> ♡</p>
+          <h2 class="disp" style="font-size:clamp(40px,8vw,56px);margin:6px 0 12px">C'est commandé !</h2>
+          <p style="color:#6f5a4b">Commande <b data-ordno></b> · Total <b data-ord-tot></b><br>On t'appelle pour confirmer avant l'expédition.</p>
+          <div class="track-list">
+            <div class="on"><i></i><span><b>Commande reçue</b><br><small>À l'instant</small></span></div>
+            <div><i></i><span><b>Appel de confirmation</b><br><small>Sous 24 h</small></span></div>
+            <div><i></i><span><b>Expédition</b></span></div>
+            <div><i></i><span><b>Livraison & paiement</b></span></div>
+          </div>
+          <a href="index.html" class="bigbtn dark">Retour à l'accueil <i>→</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="card2">
+        <h3>Ton panier</h3>
+        <div data-sum-lines></div>
+        <div style="display:grid;gap:10px;margin-top:14px;border-top:2px dashed #efe3d3;padding-top:16px">
+          <div class="sum-row"><span>Sous-total</span><span data-sum-sub></span></div>
+          <div class="sum-row"><span>Livraison</span><span data-sum-ship></span></div>
+          <div class="sum-row total"><span>Total</span><span data-sum-tot></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/cart.js"></script>
+<script src="../assets/v2-layout.js"></script>
+<script src="../assets/checkout.js"></script>
+<script>V2.setTheme('fraise');document.addEventListener('wazni:ordered',()=>V2.confetti(['#4a2619','#e0567a','#e0b04f','#8fa36b']));</script>
+</body>
+</html>

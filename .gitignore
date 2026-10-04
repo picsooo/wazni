@@ -1,0 +1,7 @@
+# Build artifact (duplicate of the tracked site files)
+wazni-maquette.zip
+
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store

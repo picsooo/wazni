@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Commande · Wazni</title>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/v1.css">
+</head>
+<body data-no-drawer="1">
+<div class="wrap ph-head" data-checkout-top>
+  <div class="crumbs"><a href="index.html">Accueil</a> / <a href="panier.html">Panier</a> / Commande</div>
+  <h1>Finaliser ma commande</h1>
+</div>
+<div class="wrap">
+  <div class="stepper"><div data-st="0">Panier</div><div data-st="1">Coordonnées</div><div data-st="2">Livraison</div><div data-st="3">Paiement</div></div>
+  <div class="cart-page">
+    <div>
+      <div class="box pane" data-pane="1">
+        <h3>Tes coordonnées</h3>
+        <p data-empty-note style="display:none;margin-bottom:14px" class="tovalid">Panier vide — <a href="#" data-demo-fill style="text-decoration:underline">remplir pour la démo</a></p>
+        <div class="fields">
+          <div class="f"><label>Prénom *</label><input name="prenom" required autocomplete="given-name"><span class="e">Champ requis</span></div>
+          <div class="f"><label>Nom *</label><input name="nom" required autocomplete="family-name"><span class="e">Champ requis</span></div>
+          <div class="f full"><label>Téléphone *</label><input name="tel" required inputmode="tel" placeholder="05 / 06 / 07 …"><span class="e">Numéro mobile algérien à 10 chiffres</span></div>
+          <div class="f full"><label>E-mail (facultatif)</label><input name="email" type="email" placeholder="Pour recevoir le suivi"></div>
+        </div>
+        <div class="nav-btns"><a href="panier.html" class="btn btn-ghost btn-sm">← Panier</a><button class="btn btn-dark" data-next>Continuer vers la livraison</button></div>
+      </div>
+      <div class="box pane" data-pane="2">
+        <h3>Livraison</h3>
+        <div class="fields">
+          <div class="f"><label>Wilaya *</label><select name="wilaya" required></select><span class="e">Choisis ta wilaya</span></div>
+          <div class="f"><label>Commune *</label><input name="commune" required><span class="e">Champ requis</span></div>
+          <div class="f full"><label>Adresse</label><input name="adresse" placeholder="Rue, quartier, repère…"></div>
+        </div>
+        <p class="opt-label" style="margin-top:22px">Mode de livraison <span class="tovalid">Tarifs indicatifs</span></p>
+        <div class="radio">
+          <label><input type="radio" name="mode" value="domicile" checked><span class="t"><b>Livraison à domicile</b><small>24 à 72 h selon la wilaya</small></span><span class="p" data-mode-price="domicile">—</span></label>
+          <label><input type="radio" name="mode" value="relais"><span class="t"><b>Point relais / bureau</b><small>Retrait au bureau du transporteur</small></span><span class="p" data-mode-price="relais">—</span></label>
+        </div>
+        <div class="nav-btns"><button class="btn btn-ghost btn-sm" data-prev>← Retour</button><button class="btn btn-dark" data-next>Continuer vers le paiement</button></div>
+      </div>
+      <div class="box pane" data-pane="3">
+        <h3>Paiement</h3>
+        <div class="radio">
+          <label><input type="radio" name="pay" value="cod" checked><span class="t"><b>Paiement à la livraison</b><small>En espèces, à la réception du colis</small></span><span class="p">DA</span></label>
+          <label class="disabled-opt"><input type="radio" name="pay" value="cib"><span class="t"><b>Carte CIB / Edahabia</b><small>Activable sur le site final</small></span><span class="p">Bientôt</span></label>
+        </div>
+        <p class="opt-label" style="margin-top:22px">Récapitulatif</p>
+        <div class="recap" data-recap></div>
+        <div class="f full" style="margin-top:14px"><label>Note pour la livraison (facultatif)</label><textarea name="note" placeholder="Ex. appeler avant de passer"></textarea></div>
+        <div class="nav-btns"><button class="btn btn-ghost btn-sm" data-prev>← Retour</button><button class="btn btn-pink" data-confirm>Confirmer ma commande</button></div>
+        <div class="secure">Démo : aucune donnée n'est envoyée ni enregistrée</div>
+      </div>
+      <div class="box pane" data-pane="4">
+        <div class="done-box">
+          <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+          <span class="hand" style="font-size:28px">Merci <span data-ord-name></span> ♡</span>
+          <h2>Commande confirmée</h2>
+          <p style="color:var(--muted)">Commande n° <b data-ordno style="color:var(--cacao)"></b> · Total <b data-ord-tot style="color:var(--cacao)"></b><br>Notre équipe t'appelle pour confirmer avant l'expédition.</p>
+          <div class="track-list">
+            <div class="on"><i></i><span><b>Commande reçue</b><br><small>À l'instant</small></span></div>
+            <div><i></i><span><b>Appel de confirmation</b><br><small>Sous 24 h</small></span></div>
+            <div><i></i><span><b>Expédition</b><br><small>Remise au transporteur</small></span></div>
+            <div><i></i><span><b>Livraison & paiement</b><br><small>Tu paies à la réception</small></span></div>
+          </div>
+          <a href="index.html" class="btn btn-dark">Retour à l'accueil</a>
+        </div>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="box">
+        <h3>Ta commande</h3>
+        <div data-sum-lines></div>
+        <div style="display:grid;gap:10px;margin-top:14px;border-top:1px solid var(--line);padding-top:14px">
+          <div class="sum-row"><span>Sous-total</span><span data-sum-sub></span></div>
+          <div class="sum-row"><span>Livraison</span><span data-sum-ship></span></div>
+          <div class="sum-row total"><span>Total</span><span data-sum-tot></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/cart.js"></script>
+<script src="assets/v1-layout.js"></script>
+<script src="assets/checkout.js"></script>
+</body>
+</html>

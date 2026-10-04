@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Boutique · Wazni</title>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/v1.css">
+</head>
+<body>
+<div class="wrap ph-head">
+  <div class="crumbs"><a href="index.html">Accueil</a> / Boutique</div>
+  <h1>La boutique Wazni</h1>
+  <p style="color:var(--muted);margin-top:10px;max-width:560px">Sachets individuels ou packs : compose ta commande, on te livre partout en Algérie. <span class="tovalid">Prix indicatifs à valider par Wazni</span></p>
+</div>
+<div class="wrap" style="padding-bottom:40px">
+  <div class="toolbar">
+    <div class="filters" data-filters>
+      <button class="on" data-f="all">Tout</button><button data-f="single">Sachets 58 g</button><button data-f="pack">Packs</button>
+    </div>
+    <select class="sel" data-sort aria-label="Trier"><option value="pop">Les plus populaires</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select>
+  </div>
+  <div class="grid-shop" data-shop></div>
+</div>
+<script src="assets/cart.js"></script>
+<script src="assets/v1-layout.js"></script>
+<script src="assets/v1-cards.js"></script>
+<script>
+(function(){
+  const P=Wazni.products, order=['trio','chocolat','fraise','vanille','semaine'];
+  let f='all', s='pop';
+  const box=document.querySelector('[data-shop]');
+  function render(){
+    let ids=order.filter(id=>f==='all'||(f==='pack')===!!P[id].pack);
+    if(s!=='pop') ids.sort((a,b)=>s==='asc'?P[a].price-P[b].price:P[b].price-P[a].price);
+    box.innerHTML=ids.map(cardHTML).join('');
+    box.querySelectorAll('.card').forEach((c,i)=>setTimeout(()=>c.classList.add('in'),60*i));
+  }
+  document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('on'));b.classList.add('on');f=b.dataset.f;render();});
+  document.querySelector('[data-sort]').onchange=e=>{s=e.target.value;render();};
+  render();
+})();
+</script>
+</body>
+</html>

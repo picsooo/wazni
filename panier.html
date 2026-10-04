@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Mon panier · Wazni</title>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/v1.css">
+</head>
+<body data-no-drawer="1">
+<div class="wrap ph-head">
+  <div class="crumbs"><a href="index.html">Accueil</a> / Panier</div>
+  <h1>Mon panier</h1>
+</div>
+<div class="wrap">
+  <div class="stepper"><div class="on">Panier</div><div>Coordonnées</div><div>Livraison</div><div>Paiement</div></div>
+  <div class="cart-page">
+    <div class="box"><div data-lines></div></div>
+    <div class="summary">
+      <div class="box">
+        <h3>Récapitulatif</h3>
+        <div data-free></div>
+        <div style="display:grid;gap:10px;margin-top:16px">
+          <div class="sum-row"><span>Sous-total</span><span data-sub></span></div>
+          <div class="sum-row"><span>Livraison</span><span style="color:var(--muted)">Selon la wilaya</span></div>
+          <div class="coupon"><input placeholder="Code promo" aria-label="Code promo"><button class="btn btn-ghost btn-sm" onclick="Wazni.toast('Démo : codes promo gérés depuis l\'administration')">Appliquer</button></div>
+          <div class="sum-row total" style="border-top:1px solid var(--line);padding-top:14px"><span>Total</span><span data-tot></span></div>
+          <a href="commande.html" class="btn btn-dark" data-go>Passer la commande</a>
+          <a href="boutique.html" class="btn btn-ghost btn-sm">Continuer mes achats</a>
+        </div>
+      </div>
+      <div class="box" style="display:grid;gap:10px;font-size:14px">
+        <b style="color:var(--cacao)">Commande en toute confiance</b>
+        <span>✓ Appel de confirmation avant expédition</span><span>✓ Paiement en espèces à la réception</span><span>✓ Livraison dans les 58 wilayas</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/cart.js"></script>
+<script src="assets/v1-layout.js"></script>
+<script>
+(function(){
+  const W=Wazni, $=s=>document.querySelector(s);
+  function r(){
+    const L=W.lines();
+    $('[data-lines]').innerHTML=L.length?L.map(lineHTML).join(''):`<div class="empty">${WI.bag}<p>Ton panier est vide pour le moment.</p><a href="boutique.html" class="btn btn-dark btn-sm" style="margin-top:16px">Découvrir les saveurs</a></div>`;
+    $('[data-sub]').textContent=W.fmt(W.subtotal()); $('[data-tot]').textContent=W.fmt(W.subtotal());
+    $('[data-free]').innerHTML=freeHTML(); $('[data-go]').style.pointerEvents=L.length?'':'none'; $('[data-go]').style.opacity=L.length?1:.4;
+  }
+  W.on(r); r();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Contact · Wazni</title>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/v1.css">
+</head>
+<body>
+<div class="wrap ph-head">
+  <div class="crumbs"><a href="index.html">Accueil</a> / Contact</div>
+  <h1>Une question ? <span class="hand" style="font-size:.8em">On est là ♡</span></h1>
+</div>
+<div class="wrap cart-page" style="padding-bottom:40px">
+  <div class="box">
+    <h3>Écris-nous</h3>
+    <form class="fields" onsubmit="event.preventDefault();Wazni.toast('Message envoyé (démo : rien n\'est enregistré)');this.reset()">
+      <div class="f"><label>Nom</label><input required></div>
+      <div class="f"><label>Téléphone</label><input required inputmode="tel"></div>
+      <div class="f full"><label>Sujet</label><select><option>Question sur une commande</option><option>Revendeur / pharmacie / salle de sport</option><option>Autre</option></select></div>
+      <div class="f full"><label>Message</label><textarea required></textarea></div>
+      <div class="f full"><button class="btn btn-dark">Envoyer</button></div>
+    </form>
+  </div>
+  <div class="summary">
+    <div class="box" style="display:grid;gap:12px">
+      <h3>Wazni · وزني</h3>
+      <span>Téléphone / WhatsApp : <span class="tovalid">À compléter</span></span>
+      <span>E-mail : <span class="tovalid">À compléter</span></span>
+      <span>Instagram · Facebook · TikTok : <span class="tovalid">Liens à compléter</span></span>
+      <a href="https://wa.me/" class="btn btn-pink btn-sm" onclick="Wazni.toast('Démo : le numéro WhatsApp sera ajouté');return false">Commander sur WhatsApp</a>
+    </div>
+    <div class="box"><b style="color:var(--cacao)">Devenir revendeur</b><p style="color:var(--muted);font-size:14px;margin-top:6px">Pharmacies, parapharmacies, salles de sport : demande nos conditions professionnelles via le formulaire.</p></div>
+  </div>
+</div>
+<script src="assets/cart.js"></script>
+<script src="assets/v1-layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr" data-base="../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Wazni · Saveur</title>
+<link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../assets/v2.css">
+</head>
+<body data-light="1">
+<div class="wrap pg">
+  <div class="pdp2">
+    <div class="vis" data-vis><div class="giant disp" data-giant></div><img data-img src="" alt=""></div>
+    <div>
+      <a href="index.html#shop" style="font-weight:700;text-decoration:underline">← Toutes les saveurs</a>
+      <h1 class="disp" data-name></h1>
+      <p class="hand" style="font-size:30px;color:var(--fl)" data-tag></p>
+      <p style="font-size:18px;color:#6f5a4b;margin-top:10px" data-desc></p>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap"><span class="price-big" data-price></span><span class="tv">Prix à valider</span></div>
+      <div class="sw">
+        <a href="produit.html?id=chocolat" data-fl="chocolat"><i style="background:#4a2619"></i>Chocolat</a>
+        <a href="produit.html?id=fraise" data-fl="fraise"><i style="background:#e0567a"></i>Fraise</a>
+        <a href="produit.html?id=vanille" data-fl="vanille"><i style="background:#e0b04f"></i>Vanille</a>
+        <a href="produit.html?id=trio" data-fl="trio"><i style="background:conic-gradient(#4a2619 0 33%,#e0567a 0 66%,#e0b04f 0)"></i>Pack Trio</a>
+      </div>
+      <div class="qtyrow">
+        <div class="q3"><button data-qm>−</button><input id="q" value="1" inputmode="numeric" aria-label="Quantité"><button data-qp>+</button></div>
+        <button class="bigbtn dark" data-addbtn data-qty-from="#q" style="flex:1;justify-content:space-between">Ajouter au panier <i>+</i></button>
+      </div>
+      <div class="chips3">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Énergie durable</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg>Soutien musculaire</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/></svg>Apport complet</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/></svg>Paiement à la livraison</div>
+      </div>
+      <div class="howto"><div><b>50 g</b>1 dose</div><div><b>250 ml</b>de lait</div><div><b>30 s</b>au mixeur</div><div><b>♡</b>à déguster</div></div>
+      <p style="margin-top:18px;font-size:14px;color:#6f5a4b">Composition et valeurs nutritionnelles : <span class="tv">à fournir par Wazni</span></p>
+    </div>
+  </div>
+</div>
+<script src="../assets/cart.js"></script>
+<script src="../assets/v2-layout.js"></script>
+<script>
+(function(){
+  const P=Wazni.products; let id=new URLSearchParams(location.search).get('id'); if(!P[id]||id==='semaine') id=id==='semaine'?'semaine':'chocolat';
+  const p=P[id], $=s=>document.querySelector(s); V2.setTheme(id); document.title='Wazni · '+p.full;
+  $('[data-name]').textContent=p.name; $('[data-tag]').textContent=p.tag; $('[data-desc]').textContent=p.desc;
+  $('[data-price]').innerHTML=Wazni.fmt(p.price)+(p.old?`<s>${Wazni.fmt(p.old)}</s>`:'');
+  $('[data-img]').src=p.img; $('[data-giant]').textContent=(p.name.toUpperCase()+' · ').repeat(6);
+  const f=document.querySelector(`[data-fl="${id}"]`); if(f) f.classList.add('on');
+  $('[data-addbtn]').dataset.add=id;
+  const q=$('#q'); $('[data-qm]').onclick=()=>q.value=Math.max(1,+q.value-1); $('[data-qp]').onclick=()=>q.value=Math.min(20,+q.value+1);
+  const v=$('[data-vis]'), im=$('[data-img]');
+  v.addEventListener('mousemove',e=>{const r=v.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5; im.style.transform=`rotateY(${x*24}deg) rotateX(${-y*18}deg) scale(1.05)`;});
+  v.addEventListener('mouseleave',()=>im.style.transform='');
+})();
+</script>
+</body>
+</html>
